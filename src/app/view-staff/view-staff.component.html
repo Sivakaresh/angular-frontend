@@ -1,0 +1,52 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Staff List</h2>
+  </div>
+  <div>
+    <form class="form-inline">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+      <button (click)="goToAddStaff()" class="btn btn-success">
+        Add Staff
+      </button>
+    </form>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let staff of staffs">
+          <td>{{ staff.staffName }}</td>
+          <td>{{ staff.email }}</td>
+          <td>
+            <button (click)="deleteStaff(staff.staffId)" class="btn btn-danger">
+              Delete
+            </button>
+            <button
+              (click)="updateStaff(staff.staffId)"
+              class="btn btn-warning"
+            >
+              Update
+            </button>
+            <button (click)="staffInfo(staff.staffId)" class="btn btn-info">
+              More Info
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
